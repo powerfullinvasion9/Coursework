@@ -3,33 +3,39 @@
 using namespace std;
 
 
-void createAdmin(vector<Account>& acc) {
+void createAdmin(ofstream &fout) {
 	
-	ifstream fin;
-	fin.open(FILE_OF_ACC, ios::in);
-	Account admin;
-	admin.access = 1;
-	admin.login = "admin";
-	admin.password = "password";
+	fout.open(FILE_OF_ACC, ios::app);
+	ifstream file;
+	file.open(FILE_OF_ACC);
 
-
-	if (acc.empty())
+	if (isEmpty(file))
 	{
-		acc.push_back(admin);
+		fout << "admin" << "\t" << "password" << "\t" << "1" << endl;
 	}
 	else
 	{
 		return;
-	}
-	
+	}	
 }
 
-void writeVectorToFile(vector<Account>& acc,ofstream &fout) {
+void writeVectorToFileAcc(vector<Account>& acc,ofstream &fout) {
 
-	
+	fout.open(FILE_OF_ACC,std::ios::app);
 	for (int i = 0; i < acc.size(); i++)
 	{
-		fout << acc[i].login << " " << acc[i].password << " " << acc[i].access << endl;
+		fout << acc[i].login << "\t" << acc[i].password << "\t" << acc[i].access << endl;
+	}
+
+	fout.close();
+}
+
+void writeVectorToFileReg(vector<Account>& acc, ofstream& fout) {
+
+	fout.open(FILE_OF_REG, std::ios::app);
+	for (int i = 0; i < acc.size(); i++)
+	{
+		fout << acc[i].login << "\t" << acc[i].password << "\t" << acc[i].access << endl;
 	}
 
 	fout.close();
@@ -39,5 +45,61 @@ void addAccountToVector(vector<Account>& acc,Account user) {
 
 	acc.push_back(user);
 
+}
 
+void readFileToVectorAcc(vector<Account>& acc,ifstream &fin) {
+	
+	Account temp;
+	fin.open(FILE_OF_ACC);
+
+	if (fin.is_open())
+	{
+		string line;
+		while (getline(fin,line))
+		{
+			string login, password;
+			int access;
+
+			istringstream iss(line);
+
+			iss >> login >> password >> access;
+
+			temp.login = login;
+			temp.password = password;
+			temp.access = access;
+
+			acc.push_back(temp);
+		}
+	}
+}
+
+void readFileToVectorReg(vector<Account>& acc, ifstream& fin) {
+
+	Account temp;
+	fin.open(FILE_OF_REG);
+
+	if (fin.is_open())
+	{
+		string line;
+		while (getline(fin, line))
+		{
+			string login, password;
+			int access;
+
+			istringstream iss(line);
+
+			iss >> login >> password >> access;
+
+			temp.login = login;
+			temp.password = password;
+			temp.access = access;
+
+			acc.push_back(temp);
+		}
+	}
+}
+
+bool isEmpty(ifstream& file) {
+
+	return file.peek() == std::ifstream::traits_type::eof();
 }

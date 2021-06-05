@@ -1,2 +1,1 @@
-admin password 1
-Isa i7753191 0
+admin	password	1
