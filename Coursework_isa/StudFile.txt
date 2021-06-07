@@ -1,1 +1,2 @@
-Isa	sul	dav	1	10901	1	1	1	1	1	1	1	6	1
+Isa	Suleymanov	Davidovish	0	10901	1	125	1	1	1	1	1	6	7	8	6
+David	Kurepin	Chegevara	0	906033	1	150	0	0	1	1	1	9	10	9	9

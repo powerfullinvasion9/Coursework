@@ -18,20 +18,23 @@ void readFileStud(vector<Student>& vec) {
 			int logicOfset, politOfset, englishOfset, historyOfset, phylosOfset;
 			int math, physics, chemistry, programming;
 			int groupNum;
-
+			int active;
+			double scolarship;
 
 			istringstream iss(line);
 
-			iss >> name >> surename >> fathername 
+			iss >> name >> surename >> fathername
 				>> educationForm
 				>> groupNum
+				>> active
+				>> scolarship
 				>> logicOfset >> politOfset >> englishOfset >> historyOfset >> phylosOfset
 				>> math >> physics >> chemistry >> programming;
 			
 			temp.name = name; temp.surename = surename; temp.fathername = fathername;
 			temp.logicOfset = logicOfset; temp.politOfset = politOfset; temp.englishOfset = englishOfset; temp.historyOfset = historyOfset; temp.phylosOfset = phylosOfset;
 			temp.math = math; temp.physics = physics; temp.chemistry = chemistry; temp.programming = programming;
-			temp.educationForm = educationForm; temp.groupNum = groupNum;
+			temp.educationForm = educationForm; temp.groupNum = groupNum; temp.active = active; temp.scolarchip = scolarship;
 
 			vec.push_back(temp);
 		}
@@ -58,7 +61,7 @@ void writeFileStud(vector<Student>& vec) {
 	for (int i = 0; i < vec.size(); i++)
 	{
 		fout << vec[i].name << "\t" << vec[i].surename << "\t" << vec[i].fathername << "\t" 
-			<< vec[i].educationForm << "\t" << vec[i].groupNum << "\t"
+			<< vec[i].educationForm << "\t" << vec[i].groupNum << "\t" << vec[i].active << "\t" << vec[i].scolarchip << "\t"
 			<< vec[i].logicOfset << "\t" << vec[i].politOfset << "\t" << vec[i].englishOfset << "\t" << vec[i].historyOfset << "\t" << vec[i].phylosOfset << "\t"
 			<< vec[i].math << "\t" << vec[i].physics << "\t" << vec[i].chemistry << "\t" << vec[i].programming << endl;
 	}
@@ -74,6 +77,7 @@ void addStudVector(vector<Student>& vec) {
 
 	cout << "Введите форму обучения(плат-1/будж-0):"; cin >> temp.educationForm;
 	cout << "Введите номер группы: "; cin >> temp.groupNum;
+	cout << "Введите параметр активности(1 - актив / 0 - неактив): "; cin >> temp.active;
 
 	cout << "Введите оценку по Логике(зач - 1/незач - 0): "; cin >> temp.logicOfset;
 	cout << "Введите оценку по Политологии(зач - 1/незач - 0): "; cin >> temp.politOfset;
@@ -85,7 +89,8 @@ void addStudVector(vector<Student>& vec) {
 	cout << "Введите оценку по Физике: "; cin >> temp.physics;
 	cout << "Введите оценку по Химии: "; cin >> temp.chemistry;
 	cout << "Введите оценку по Программированию: "; cin >> temp.programming;
-	
+
+	temp.scolarchip = 0;
 
 	vec.push_back(temp);
 }
@@ -107,7 +112,9 @@ void showTableHeader() {
 	cout << setw(30) << left << "Ф.И.О" << "|"
 		<< setw(12) << left << "Номер группы" << "|"
 		<< setw(14) << left << "Форма обучения" << "|"
-		<< setw(6) << left << "Логика" << "|"
+		<< setw(19) << left << "Параметр активности" << "|"
+		<< setw(12) << left << "Стипендия" << "|"
+		<< setw(9) << left << "Логика" << "|"
 		<< setw(11) << left << "Политология" << "|"
 		<< setw(10) << left << "Английский" << "|"
 		<< setw(7) << left << "История" << "|"
@@ -122,14 +129,69 @@ void showStud(vector<Student>& vec, int i) {
 
 	string fullName = vec.at(i).name + " " + vec.at(i).surename + " " + vec.at(i).fathername;
 	cout << setw(30) << left << fullName << "|"
-		<< setw(12) << left << vec.at(i).groupNum << "|"
-		<< setw(14) << vec.at(i).educationForm << "|"
-		<< setw(6) << vec.at(i).logicOfset << "|"
-		<< setw(11) << vec.at(i).politOfset << "|"
-		<< setw(10) << vec.at(i).englishOfset << "|"
-		<< setw(7) << vec.at(i).historyOfset << "|"
-		<< setw(9) << vec.at(i).phylosOfset << "|"
-		<< setw(10) << vec.at(i).math << "|"
+		<< setw(12) << left << vec.at(i).groupNum << "|";
+
+		if (vec.at(i).educationForm == 1)
+		{
+			cout << setw(14) << "Платное" << "|";
+		}
+		else
+		{
+			cout << setw(14) << "Буджет" << "|";
+		}
+		
+		if (vec.at(i).active == 1)
+		{
+			cout << setw(19) << "Активный" << "|";
+		}
+		else
+		{
+			cout << setw(19) << "Неактивный" << "|";
+		}
+	
+	cout << setw(9) << setprecision(5) << vec.at(i).scolarchip << "руб" << "|";
+		if (vec.at(i).logicOfset == 1)
+		{
+			cout << setw(9) << "Зачет" << "|";
+		}
+		else
+		{
+			cout << setw(9) << "Незачет" << "|";
+		}
+		if (vec.at(i).politOfset == 1)
+		{
+			cout << setw(11) << "Зачет" << "|";
+		}
+		else
+		{
+			cout << setw(11) << "Незачет" << "|";
+		}
+		if (vec.at(i).englishOfset == 1)
+		{
+			cout << setw(10) << "Зачет" << "|";
+		}
+		else
+		{
+			cout << setw(10) << "Незачет" << "|";
+		}
+		if (vec.at(i).historyOfset == 1)
+		{
+			cout << setw(7) << "Зачет" << "|";
+		}
+		else
+		{
+			cout << setw(7) << "Незачет" << "|";
+		}
+		if (vec.at(i).phylosOfset == 1)
+		{
+			cout << setw(9) << "Зачет" << "|";
+		}
+		else
+		{
+			cout << setw(9) << "Незачет" << "|";
+		}
+		
+	cout<< setw(10) << vec.at(i).math << "|"
 		<< setw(6) << vec.at(i).physics << "|"
 		<< setw(5) << vec.at(i).chemistry << "|"
 		<< setw(16) << vec.at(i).programming << "|" << endl;
@@ -189,6 +251,8 @@ void dataOrgMenu(vector<Student>& vec) {
 		cout << "2 - Добавить студента" << endl;
 		cout << "3 - Удалить сдуента" << endl;
 		cout << "4 - Редактировать студента" << endl;
+		cout << "5 - Сортировать студентов" << endl;
+		cout << "6 - Выполнить индивидуальное задание" << endl;
 		cout << "0 - Выход" << endl;
 
 		cin >> option;
@@ -196,7 +260,9 @@ void dataOrgMenu(vector<Student>& vec) {
 		switch (option)
 		{
 		case 1:
+			system("cls");
 			showStudTable(vec);
+			cout << endl;
 			break;
 		case 2:
 			system("cls");
@@ -209,6 +275,16 @@ void dataOrgMenu(vector<Student>& vec) {
 		case 4:
 			system("cls");
 			studRed(vec);
+			break;
+		case 5:
+			system("cls");
+			sortMenu(vec);
+			showStudTable(vec);
+			break;
+		case 6:
+			system("cls");
+			countScolarship(vec);
+			showStudTable(vec);
 			break;
 		}
 	}
@@ -330,4 +406,114 @@ void studRed(vector<Student>& vec) {
 		}
 	}
 	
+}
+
+// -- конец функций редактирования
+// -- функции сортировки
+
+void sortStudByName(vector<Student>& vec) {
+
+	sort(vec.begin(), vec.end(), sortNameComp);
+}
+
+bool sortNameComp(Student std_a, Student std_b) {
+
+	return std_a.name < std_b.name;
+}
+
+void sortStudByGroup(vector<Student>& vec) {
+
+	sort(vec.begin(), vec.end(), sortGroupComp);
+}
+
+bool sortGroupComp(Student std_a, Student std_b) {
+
+	return std_a.groupNum > std_b.groupNum;
+}
+
+void sortStudByProg(vector<Student>& vec) {
+	
+	sort(vec.begin(), vec.end(), sortProgComp);
+}
+bool sortProgComp(Student std_a, Student std_b) {
+
+	return std_a.programming > std_b.programming;
+}
+
+void sortMenu(vector<Student>& vec) {
+
+	int itter = -1;
+
+	while (itter != 0)
+	{
+		cout << "==================| Меню сортировки |====================" << endl;
+		cout << "1 - Сортировать по имени" << endl;
+		cout << "2 - Сортировать по номеру группы" << endl;
+		cout << "3 - Сортировать по оценкам по программированию" << endl;
+		cout << "0 - Выход" << endl;
+
+		cin >> itter;
+		switch (itter)
+		{
+		case 1:
+			system("cls");
+			sortStudByName(vec);
+			showStudTable(vec);
+			break;
+		case 2:
+			system("cls");
+			sortStudByGroup(vec);
+			showStudTable(vec);
+			break;
+		case 3:
+			system("cls");
+			sortStudByProg(vec);
+			showStudTable(vec);
+			break;
+		}
+	}
+}
+
+// --функции для вычисления стипендии
+
+bool exelStud(vector<Student>& vec, int i) {
+
+	if (vec.at(i).math >= 9 && vec.at(i).physics >= 9 && vec.at(i).chemistry >= 9 && vec.at(i).programming >= 9)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+int overageScore(vector<Student>& vec, int i) {
+
+	return (vec.at(i).math + vec.at(i).physics + vec.at(i).chemistry + vec.at(i).programming) / 4;
+}
+
+void countScolarship(vector<Student>& vec) {
+
+	double scolarship; 
+	cout << "Введите базовое значение стипендии "; cin >> scolarship;
+
+	for (int i = 0; i < vec.size(); i++)
+	{
+		if (vec.at(i).educationForm == 0)
+		{
+			if (exelStud(vec, i))
+			{
+				vec.at(i).scolarchip = scolarship + (scolarship * 0.5);
+			}
+			else if (overageScore(vec, i) > 5)
+			{
+				vec.at(i).scolarchip = scolarship + (scolarship * 0.25);
+			}
+			else
+			{
+				vec.at(i).scolarchip = scolarship;
+			}
+		}
+	}
 }
