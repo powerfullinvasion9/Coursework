@@ -203,6 +203,7 @@ void showStud(vector<Student>& vec, int i) {
 void deleteStud(vector<Student>& vec) {
 	
 	string name, surename, fathername;
+	showStudTable(vec);
 	cout << "Введите имя студента: "; cin >> name;
 	cout << "Введите фамилию студента: "; cin >> surename;
 	cout << "Введите отчество студента: "; cin >> fathername;
@@ -246,7 +247,7 @@ void dataOrgMenu(vector<Student>& vec) {
 
 	while (option != 0)
 	{
-		cout << "==================| Меню |==================" << endl;
+		cout << "==================| Меню работы с данными |==================" << endl;
 		cout << "1 - Показаеть список студентов" << endl;
 		cout << "2 - Добавить студента" << endl;
 		cout << "3 - Удалить сдуента" << endl;
