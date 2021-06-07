@@ -1,4 +1,8 @@
-﻿  authorization.cpp
-C:\Users\powerfullinvasion9\Desktop\Coursework_isa\Coursework_isa\authorization.cpp(25,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\powerfullinvasion9\Desktop\Coursework_isa\Coursework_isa\authorization.cpp(36,20): warning C4018: <: несоответствие типов со знаком и без знака
+﻿  Coursework_isa.cpp
+  data_organization.cpp
+C:\Users\powerfullinvasion9\Desktop\Coursework_isa\Coursework_isa\data_organization.cpp(58,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\powerfullinvasion9\Desktop\Coursework_isa\Coursework_isa\data_organization.cpp(99,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\powerfullinvasion9\Desktop\Coursework_isa\Coursework_isa\data_organization.cpp(148,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\powerfullinvasion9\Desktop\Coursework_isa\Coursework_isa\data_organization.cpp(245,20): warning C4018: <: несоответствие типов со знаком и без знака
+  Создание кода...
   Coursework_isa.vcxproj -> C:\Users\powerfullinvasion9\Desktop\Coursework_isa\Debug\Coursework_isa.exe

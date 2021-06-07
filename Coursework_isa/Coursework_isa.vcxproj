@@ -141,9 +141,11 @@
   <ItemGroup>
     <ClCompile Include="Coursework_isa.cpp" />
     <ClCompile Include="authorization.cpp" />
+    <ClCompile Include="data_organization.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="authorization.h" />
+    <ClInclude Include="data_organization.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -21,9 +21,15 @@
     <ClCompile Include="authorization.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="data_organization.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="authorization.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="data_organization.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
