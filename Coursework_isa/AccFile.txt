@@ -1,3 +1,4 @@
 admin	password	1
-isa	7753191	1
+isa	7753191	0
 powerfull	7753191	0
+david	123523	0

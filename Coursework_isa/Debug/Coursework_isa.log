@@ -1,7 +1,2 @@
-﻿  data_organization.cpp
-C:\Users\powerfullinvasion9\Desktop\Coursework_isa\Coursework_isa\data_organization.cpp(61,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\powerfullinvasion9\Desktop\Coursework_isa\Coursework_isa\data_organization.cpp(104,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\powerfullinvasion9\Desktop\Coursework_isa\Coursework_isa\data_organization.cpp(211,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\powerfullinvasion9\Desktop\Coursework_isa\Coursework_isa\data_organization.cpp(322,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\powerfullinvasion9\Desktop\Coursework_isa\Coursework_isa\data_organization.cpp(502,20): warning C4018: <: несоответствие типов со знаком и без знака
+﻿  Coursework_isa.cpp
   Coursework_isa.vcxproj -> C:\Users\powerfullinvasion9\Desktop\Coursework_isa\Debug\Coursework_isa.exe

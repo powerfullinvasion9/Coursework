@@ -259,6 +259,7 @@ void adminMenu(vector<Account>& acc, vector<Account>& reg, vector<Student>& vec)
 	int itter = -1;
 	while (itter != 0)
 	{
+		cout << "=========== Меню Администратора ===========" << endl;
 		cout << "1 - Просмотреть учетные записи" << endl;
 		cout << "2 - Добавить новую учетную запись" << endl;
 		cout << "3 - Редактировать учетную запись" << endl;
@@ -319,6 +320,7 @@ void mainMenu(vector<Account>& acc, vector<Account>& reg, vector<Student>& vec){
 
 	while (itter != 0)
 	{
+		cout << "========== Авторизация ==========" << endl;
 		cout << "1 - Вход" << endl;
 		cout << "2 - Регистрация" << endl;
 		cout << "0 - Выход" << endl;
